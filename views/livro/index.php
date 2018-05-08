@@ -8,7 +8,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\LivroSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Livro';
+$this->title = 'Livros';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="livro-index">
