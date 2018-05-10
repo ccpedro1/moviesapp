@@ -18,6 +18,7 @@ use app\models\Autor;
     $form = ActiveForm::begin([
                 'options' => ['enctype' => 'multipart/form-data'],
                  'enableAjaxValidation' => true,
+                 'validationUrl' => 'validate',
     ]);
     ?>
 

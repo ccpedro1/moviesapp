@@ -34,6 +34,7 @@ class Livro extends \yii\db\ActiveRecord {
     public function rules() {
         return [
             [['titulo'], 'required'],
+            [['titulo'], 'unique'],
             [['descricao'], 'string'],
             [['autor_id'], 'integer'],
             [['data_edicao'], 'date'],
