@@ -56,6 +56,7 @@ $config = [
             'enableStrictParsing' => false,
             'baseUrl' => $baseUrl,
             'rules' => [
+                'autores' => 'autor/index',
                 '<controller>s' => '<controller>/index',
                 '<controller>/<id:\d+>' => '<controller>/view',
             ],
