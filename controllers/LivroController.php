@@ -63,6 +63,11 @@ class LivroController extends Controller {
     public function actionCreate() {
         $model = new Livro();
 
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
+
         if ($model->load(Yii::$app->request->post())) {
 
             $model->capa = UploadedFile::getInstance($model, 'capa');
