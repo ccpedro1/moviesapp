@@ -55,7 +55,7 @@ class Livro extends \yii\db\ActiveRecord {
             'titulo' => 'Titulo',
             'autor_id' => 'Autor',
             'descricao' => 'Descricao',
-            'assistido' => 'Assistido',
+            'assistido' => 'Lido',
             'data_edicao' => 'Data Edicao',
         ];
     }

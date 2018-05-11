@@ -35,8 +35,8 @@ use app\models\Autor;
     ])
     ?>
 
-    <?= $form->field($model, 'assistido')->textInput() ?>
-
+    <?= $form->field($model, 'assistido')->dropDownList([ 'n'=> 'Não', 's'=>'Sim'],['class' => 'btn btn-default']) ?>
+    
     <?= $form->field($model, 'data_edicao')->widget(DatePicker::className()) ?>
 
     <div class="form-group">
