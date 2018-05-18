@@ -34,7 +34,7 @@
                     ['label' => 'Livros', 'url' => ['/livros']],
                     ['label' => 'Autores', 'url' => ['/autores']],
                     ['label' => 'Filmes', 'url' => ['/filmes']],
-                    ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+                    ['label' => 'Login', 'url' => ['user/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Ferramentas',
                         'icon' => 'share',
