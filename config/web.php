@@ -16,6 +16,14 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
     ],
+    'modules' => [
+        'user' => [
+            'class' => Da\User\Module::class,
+            // ...other configs from here: [Configuration Options](installation/configuration-options.md), e.g.
+            // 'generatePasswords' => true,
+            // 'switchIdentitySessionKey' => 'myown_usuario_admin_user_key',
+        ]
+    ],
     'language' => 'pt-BR',
     'sourceLanguage' => 'en',
     'components' => [
@@ -26,10 +34,6 @@ $config = [
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
-        ],
-        'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -66,6 +70,13 @@ $config = [
         // uncomment if you want to cache RBAC items hierarchy
         // 'cache' => 'cache',
         ],
+        'view' => [
+            'theme' => [
+                    'pathMap' => [
+                        '@Da/User/resources/views' => '@app/views/user'
+                    ]
+                ]
+            ],
         'db' => $db,
     ],
     'params' => $params,
