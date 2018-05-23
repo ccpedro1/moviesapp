@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
 use app\models\Filme;
 use app\models\FilmeSearch;
 use yii\web\Controller;
@@ -21,6 +22,16 @@ class FilmeController extends Controller
     public function behaviors()
     {
         return [
+            // Restringe o acesso de filme somente a usuário registrado
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

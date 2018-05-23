@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
 use app\models\Autor;
 use app\models\AutorSearch;
 use yii\web\Controller;
@@ -20,6 +21,16 @@ class AutorController extends Controller
     public function behaviors()
     {
         return [
+            // Restringe o acesso de autor somente a usuário registrado
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

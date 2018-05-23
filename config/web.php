@@ -18,11 +18,14 @@ $config = [
     ],
     'modules' => [
         'user' => [
-            'class' => Da\User\Module::class,
-            // ...other configs from here: [Configuration Options](installation/configuration-options.md), e.g.
-            // 'generatePasswords' => true,
-            // 'switchIdentitySessionKey' => 'myown_usuario_admin_user_key',
-        ]
+            'class' => 'dektrium\user\Module',
+            'enableUnconfirmedLogin' => true,
+            'enableConfirmation' => false,
+            'enableRegistration'=> false, 
+            'confirmWithin' => 21600,
+            'cost' => 12,
+            'admins' => ['admin']
+        ],
     ],
     'language' => 'pt-BR',
     'sourceLanguage' => 'en',
@@ -65,15 +68,12 @@ $config = [
                 '<controller>/<id:\d+>' => '<controller>/view',
             ],
         ],
-        'authManager' => [
-            'class' => 'yii\rbac\DbManager',
-        // uncomment if you want to cache RBAC items hierarchy
-        // 'cache' => 'cache',
-        ],
+        // Sobrescrever as views de user do Módulo dektrium/user, lembrando de manter o caminho exato que estiver 
+        // no módulo. EX: vendor/dektrium/yii2-user/views/security/login.php => views/user/security/login.php
         'view' => [
             'theme' => [
                     'pathMap' => [
-                        '@Da/User/resources/views' => '@app/views/user'
+                        '@dektrium/user/views' => '@app/views/user'
                     ]
                 ]
             ],

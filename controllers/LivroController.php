@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
 use app\models\Livro;
 use app\models\LivroSearch;
 use yii\web\Controller;
@@ -23,6 +24,16 @@ class LivroController extends Controller {
      */
     public function behaviors() {
         return [
+            // Restringe o acesso de livro somente a usuário registrado
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
